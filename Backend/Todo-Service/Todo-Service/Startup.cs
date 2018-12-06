@@ -74,6 +74,7 @@ namespace Todo_Service
 			Mapper.Initialize(x =>
 			{
 				x.CreateMap<User, UserDto>().ReverseMap();
+				x.CreateMap<Todo, TodoDto>().ReverseMap();
 			});
 
 		}

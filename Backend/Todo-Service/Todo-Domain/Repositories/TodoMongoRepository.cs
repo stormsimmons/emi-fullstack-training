@@ -49,6 +49,7 @@ namespace Todo_Domain.Repositories
 
 			if (existing == null)
 			{
+				todo.CreatedAt = DateTime.Now;
 				collection.InsertOne(todo);
 			}
 
