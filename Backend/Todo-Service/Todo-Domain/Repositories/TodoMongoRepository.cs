@@ -10,7 +10,7 @@ namespace Todo_Domain.Repositories
 {
 	public class TodoMongoRepository : ITodoRepository
 	{
-		private string _connectionString;
+		private readonly string _connectionString;
 		private IMongoClient _client;
 		private IMongoDatabase _db;
 
