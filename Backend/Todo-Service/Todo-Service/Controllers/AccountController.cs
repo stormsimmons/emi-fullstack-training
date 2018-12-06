@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Todo_Domain.Enums;
 using Todo_Domain.Interfaces;
@@ -20,8 +21,10 @@ namespace Todo_Service.Controllers
 	public class AccountController : Controller
 	{
 		private readonly IUserService _userService;
-		public AccountController(IUserService userService)
+		private readonly IConfiguration _configuration;
+		public AccountController(IConfiguration configuration,IUserService userService)
 		{
+			_configuration = configuration;
 			_userService = userService;
 		}
 
@@ -55,7 +58,7 @@ namespace Todo_Service.Controllers
 
 		private string GetToken(User user)
 		{
-			string secret = "XCAP05H6LoKvbRRa/QkqLNMI7cOHguaRyHzyg7n5qEkGjQmtBhz4SzYh4Fqwjyi3KJHlSXKPwVu2+bXr6CtpgQ==";
+			string secret = _configuration.GetSection("Authentication:EncryptionKey").Value;
 			byte[] key = Convert.FromBase64String(secret);
 			SymmetricSecurityKey securityKey = new SymmetricSecurityKey(key);
 			SecurityTokenDescriptor descriptor = new SecurityTokenDescriptor

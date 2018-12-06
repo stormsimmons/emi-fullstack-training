@@ -36,7 +36,7 @@ namespace Todo_Service
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
-			string _connectionString = "mongodb://localhost:27017/";
+			string _connectionString = Configuration.GetConnectionString("MongoConnection");
 
 			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 			services.AddTransient<IUserService, UserService>();
@@ -45,8 +45,8 @@ namespace Todo_Service
 
 			services.AddCors();
 
-			string secret = "XCAP05H6LoKvbRRa/QkqLNMI7cOHguaRyHzyg7n5qEkGjQmtBhz4SzYh4Fqwjyi3KJHlSXKPwVu2+bXr6CtpgQ==";
-			var key = Convert.FromBase64String(secret);
+			string secretKey = Configuration.GetSection("Authentication:EncryptionKey").Value;
+			var key = Convert.FromBase64String(secretKey);
 			services.AddAuthentication(x =>
 			{
 				x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
