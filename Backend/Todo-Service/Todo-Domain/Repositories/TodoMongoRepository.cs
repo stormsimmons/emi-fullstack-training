@@ -45,10 +45,11 @@ namespace Todo_Domain.Repositories
 		{
 			var collection = _db.GetCollection<Todo>("Todo");
 
-			var existing = GetOne(todo.Id);
+			var existing = GetOne(todo.Id ?? new ObjectId());
 
 			if (existing == null)
 			{
+				todo.Id = ObjectId.GenerateNewId();
 				todo.CreatedAt = DateTime.Now;
 				collection.InsertOne(todo);
 			}

@@ -15,10 +15,10 @@ namespace Todo_Domain.Models
 			UserName = userName;
 		}
 
-		public ObjectId Id{ get; set; }
+		public ObjectId? Id{ get; set; }
 		public string Name { get; set; }
 		public string Status { get; set; }
-		public DateTime CreatedAt { get; set; }
+		public DateTime? CreatedAt { get; set; }
 		public string UserName { get; set; }
 		public DateTime? LastUpdatedAt { get; set; } = null;
 		public DateTime? CompletedAt{ get; set; } = null;

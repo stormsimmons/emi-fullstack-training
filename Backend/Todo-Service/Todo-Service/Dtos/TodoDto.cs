@@ -5,10 +5,10 @@ namespace Todo_Service.Dtos
 {
 	public class TodoDto
 	{
-		public ObjectId Id { get; set; }
+		public string Id { get; set; }
 		public string Name { get; set; }
 		public string Status { get; set; }
-		public DateTime CreatedAt { get; set; }
+		public DateTime? CreatedAt { get; set; }
 		public string UserName { get; set; }
 		public DateTime? LastUpdatedAt { get; set; }
 		public DateTime? CompletedAt { get; set; } 

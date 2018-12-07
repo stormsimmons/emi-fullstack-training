@@ -40,7 +40,7 @@ namespace Todo_Domain_IntegrationTests
 		public void GetOne_ValidInput_ReturnsResult()
 		{
 			//Act
-			Todo result = _todoRepository.GetOne(id:_testTodo.Id);
+			Todo result = _todoRepository.GetOne(id: (ObjectId)_testTodo.Id);
 			//Assert
 			Assert.Equal(_userName, result.UserName);
 		}
@@ -67,11 +67,11 @@ namespace Todo_Domain_IntegrationTests
 		public void Delete_ValidInput_ReturnsResult()
 		{
 			//Act
-			var initial = _todoRepository.GetOne(_testTodo.Id);
+			var initial = _todoRepository.GetOne((ObjectId)_testTodo.Id);
 
-			 _todoRepository.Delete(id: _testTodo.Id);
+			 _todoRepository.Delete(id: (ObjectId)_testTodo.Id);
 
-			var deleted = _todoRepository.GetOne(_testTodo.Id);
+			var deleted = _todoRepository.GetOne((ObjectId)_testTodo.Id);
 
 			//Assert
 			Assert.True(initial != null);
@@ -80,7 +80,7 @@ namespace Todo_Domain_IntegrationTests
 
 		public void Dispose()
 		{
-			_todoRepository.Delete(id: _testTodo.Id);
+			_todoRepository.Delete(id: (ObjectId)_testTodo.Id);
 		}
 	}
 }

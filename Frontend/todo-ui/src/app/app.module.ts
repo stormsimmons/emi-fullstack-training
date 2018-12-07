@@ -1,13 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from "@angular/router"
-import { HttpModule } from "@angular/http"
+import { HttpClientModule } from "@angular/common/http"
 import { AppComponent } from './app.component';
 import { AuthComponent } from './auth/auth.component';
 import { HomeComponent } from './home/home.component'
 import { AuthGuard } from './auth/auth.guard';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from './auth/auth.service';
+import { AddTodoComponent } from './add-todo/add-todo.component';
+import { ListTodoComponent } from './list-todo/list-todo.component';
+import { TodoService } from './services/todo.service';
 
 const routes: Routes = [
   {
@@ -30,17 +33,19 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     AuthComponent,
-    HomeComponent
+    HomeComponent,
+    AddTodoComponent,
+    ListTodoComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(
       routes
     ),
-    HttpModule,
+    HttpClientModule,
     FormsModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, TodoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

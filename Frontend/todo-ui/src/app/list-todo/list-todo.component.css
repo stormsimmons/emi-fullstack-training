@@ -1,0 +1,36 @@
+.container{
+    flex-wrap: wrap;
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .tile{
+      background: red;
+      width: 200px;
+      height: 200px;
+      padding: 20px;
+      margin: 20px;
+  }
+
+  .btn {
+    border: 2px solid transparent;
+    background: #3498DB;
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 25px;
+    padding: 5px 0;
+    text-decoration: none;
+    text-shadow: none;
+    border-radius: 3px;
+    box-shadow: none;
+    transition: 0.25s;
+    display: inline-block;
+    width: 220px;
+    margin: 0 44% 0;
+  }
+  .btn:hover {
+    background-color: #2980B9;
+  }
+  

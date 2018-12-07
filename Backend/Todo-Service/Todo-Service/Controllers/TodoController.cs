@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
 using Todo_Domain.Interfaces;
@@ -10,7 +11,7 @@ namespace Todo_Service.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]
-	//[Authorize]
+	[Authorize]
 	public class TodoController : Controller
     {
 		private readonly ITodoRepository _todoRepository;
@@ -66,5 +67,14 @@ namespace Todo_Service.Controllers
 
 			return Json(todoReturned);
 		}
+		[HttpDelete("{id}")]
+		public IActionResult Delete([FromRoute]string id)
+		{
+			 _todoRepository.Delete(new ObjectId(id));
+
+			return Ok();
+		}
+
+
 	}
 }

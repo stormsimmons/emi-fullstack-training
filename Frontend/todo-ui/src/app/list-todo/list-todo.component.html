@@ -1,0 +1,17 @@
+<button class="btn" *ngIf="showAll; else allUser" (click)="listByUser()">Show only my todos</button>
+<ng-template  #allUser>
+  <button class="btn" (click)="listAll()">Show all todos</button>
+</ng-template>
+
+
+<div class="container">
+  <div class="tile" *ngFor="let todo of todos">
+    <p>{{todo.name}}</p>
+    <p>{{todo.userName}}</p>
+    <select (change)="onChange(todo)" [(ngModel)]="todo.status">
+      <option *ngFor="let status of getEnumName()" [selected]="todo.status == status" [value]="status">{{status}}</option>
+    </select>
+    <br>
+    <button (click)="deleteTodo(todo)">Delete</button>
+  </div>
+</div>

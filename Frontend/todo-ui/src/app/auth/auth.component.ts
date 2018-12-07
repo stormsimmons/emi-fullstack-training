@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './auth.service';
-import { pipe } from 'rxjs';
-import { map } from 'rxjs/operators';
+
 import { Router } from '@angular/router';
 
 @Component({
@@ -22,9 +21,7 @@ export class AuthComponent implements OnInit {
   public onSubmit() {
     if (this.username && this.password) {
       this.authservice.signin(this.username, this.password)
-        .pipe(
-          map(x => x.json())
-        ).subscribe(x => {
+        .subscribe(x => {
           if (x.accessToken) {
             localStorage.setItem("accessToken", x.accessToken)
             this.router.navigate(["/home"])
