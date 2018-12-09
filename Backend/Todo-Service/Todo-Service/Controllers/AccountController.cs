@@ -56,32 +56,6 @@ namespace Todo_Service.Controllers
 			return Json(response);
 		}
 
-		[HttpPost("validate")]
-		public IActionResult Validate([FromBody]TokenResponse token)
-		{
-
-			string secretKey = _configuration.GetSection("Authentication:EncryptionKey").Value;
-			var key = Convert.FromBase64String(secretKey);
-			var validationParams = new TokenValidationParameters
-			{
-				ValidateIssuerSigningKey = true,
-				IssuerSigningKey = new SymmetricSecurityKey(key),
-				ValidateIssuer = false,
-				ValidateAudience = false,
-				ValidateLifetime = true
-			};
-
-			var handler = new JwtSecurityTokenHandler();
-			handler.ValidateToken(token.AccessToken, validationParams, out var securityToken);
-			
-			if(securityToken.ValidTo < DateTime.Now)
-			{
-				return Json(true);
-			}
-
-			return Json(false);
-		}
-
 		private string GetToken(User user)
 		{
 			string secret = _configuration.GetSection("Authentication:EncryptionKey").Value;
