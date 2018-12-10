@@ -11,6 +11,8 @@ import { AuthService } from './auth/auth.service';
 import { AddTodoComponent } from './add-todo/add-todo.component';
 import { ListTodoComponent } from './list-todo/list-todo.component';
 import { TodoService } from './services/todo.service';
+import { LoginComponent } from './auth/login/login.component';
+import { RegistrationComponent } from './auth/registration/registration.component';
 
 const routes: Routes = [
   {
@@ -35,7 +37,9 @@ const routes: Routes = [
     AuthComponent,
     HomeComponent,
     AddTodoComponent,
-    ListTodoComponent
+    ListTodoComponent,
+    LoginComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,

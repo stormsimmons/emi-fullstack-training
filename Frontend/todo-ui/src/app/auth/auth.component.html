@@ -1,21 +1,11 @@
-<div class="login">
-		<div class="login-screen">
-			<div class="app-title">
-				<h1>Login</h1>
-			</div>
+<div *ngIf="!isRegistration; else registerForm" class="login">
+	<app-login></app-login>
+	<button class="btn login" (click)="isRegistration = !isRegistration">Register</button>
+</div>
 
-			<div class="login-form">
-				<div class="control-group">
-				<input type="text" class="login-field"  placeholder="username" id="login-name" [(ngModel)]="username">
-				<label class="login-field-icon fui-user" for="login-name"></label>
-				</div>
-
-				<div class="control-group">
-				<input type="password" class="login-field" value="" placeholder="password" id="login-pass" [(ngModel)]="password">
-				<label class="login-field-icon fui-lock" for="login-pass"></label>
-				</div>
-
-				<button class="btn btn-primary btn-large btn-block" (click)="onSubmit()">login</button>
-			</div>
-		</div>
+<ng-template #registerForm>
+	<div class="registration">
+		<app-registration></app-registration>
+		<button class="btn registration" (click)="isRegistration = !isRegistration">Back to login</button>
 	</div>
+</ng-template>

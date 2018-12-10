@@ -14,7 +14,7 @@ namespace Todo_Domain.Models
 			UserName = userName;
 			Password = password;
 		}
-		public ObjectId Id { get; set; }
+		public ObjectId? Id { get; set; }
 		public string FirstName { get; set; }
 		public string LastName { get; set; }
 		public string UserName { get; set; }

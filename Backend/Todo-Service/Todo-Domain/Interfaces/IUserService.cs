@@ -13,5 +13,6 @@ namespace Todo_Domain.Interfaces
 		User InsertUser(User user);
 		IList<User> GetAll();
 		LoginStatus VarifyCredentials(string username, string password);
+		bool CheckUserName(string userName);
 	}
 }

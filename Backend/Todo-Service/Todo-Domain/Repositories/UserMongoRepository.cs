@@ -37,6 +37,7 @@ namespace Todo_Domain.Repositories
 
 			if (existing == null)
 			{
+				user.Id = ObjectId.GenerateNewId();
 				collection.InsertOne(user);
 			}
 

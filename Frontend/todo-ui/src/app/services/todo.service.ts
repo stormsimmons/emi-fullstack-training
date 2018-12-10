@@ -38,8 +38,12 @@ export class TodoService {
     return this.http
       .get(`${environment.apiUrl}/todo/user/${this.appContext.username}`, this.httpOptions)
       .pipe(
-        map((list: Todo[]) =>
-          list.map(this.mapTodo))
+        map((list: Todo[]) =>{
+          if(!list) {
+            return [];
+          }
+          return list.map(this.mapTodo)
+        })
       );
 
   }

@@ -55,6 +55,17 @@ namespace Todo_Domain.Services
 			return LoginStatus.Valid;
 		}
 
+		public bool CheckUserName(string userName)
+		{
+			var existingUser = _userRepository.GetOne(userName);
+
+			if(existingUser != null)
+			{
+				return false;
+			}
+			return true;
+		}
+
 		private string HashPassword(string password)
 		{
 			var hashArr = MD5.Create().

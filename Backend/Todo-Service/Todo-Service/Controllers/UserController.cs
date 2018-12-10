@@ -47,9 +47,17 @@ namespace Todo_Service.Controllers
 		}
 
 		[HttpPost]
+		[AllowAnonymous]
 		public IActionResult PostUser([FromBody]UserDto user)
 		{
 			var mappedUser = Mapper.Map<User>(user);
+
+			var validUsername = _userService.CheckUserName(mappedUser.UserName);
+
+			if (!validUsername)
+			{
+				return Conflict(new ErrorDto("Username already exists"));
+			}
 
 			var userReturned = _userService.InsertUser(mappedUser);
 

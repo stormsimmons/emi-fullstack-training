@@ -1,0 +1,35 @@
+<div class="registration">
+  <div class="registration-screen">
+    <div class="app-title">
+      <h1>Registration</h1>
+    </div>
+
+    <div class="registration-form">
+
+      <div class="control-group">
+        <input type="text" class="registration-field" placeholder="First Name" [(ngModel)]="model.firstName">
+        <label class="registration-field-icon fui-user" for="registration-name"></label>
+      </div>
+
+      <div class="control-group">
+        <input type="text" class="registration-field" placeholder="Last Name" [(ngModel)]="model.lastName">
+        <label class="registration-field-icon fui-user" for="registration-name"></label>
+      </div>
+      <div *ngIf="error">
+        <p class="error-text">Username Already Exists</p>
+      </div>
+
+      <div class="control-group">
+        <input type="text" class="registration-field" placeholder="username" id="registration-name" [(ngModel)]="model.userName">
+        <label class="registration-field-icon fui-user" for="registration-name"></label>
+      </div>
+
+      <div class="control-group">
+        <input type="password" class="registration-field" placeholder="password" id="registration-pass" [(ngModel)]="model.password">
+        <label class="registration-field-icon fui-lock" for="registration-pass"></label>
+      </div>
+
+      <button class="btn btn-primary btn-large btn-block" (click)="onSubmit()">Register</button>
+    </div>
+  </div>
+</div>

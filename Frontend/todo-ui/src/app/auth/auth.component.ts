@@ -10,24 +10,10 @@ import { Router } from '@angular/router';
 })
 export class AuthComponent implements OnInit {
 
-  public username: string;
-  public password: string;
-
-  constructor(private authservice: AuthService, private router: Router) { }
+  public isRegistration:boolean = false;
+  constructor() { }
 
   ngOnInit() {
-  }
-
-  public onSubmit() {
-    if (this.username && this.password) {
-      this.authservice.signin(this.username, this.password)
-        .subscribe(x => {
-          if (x.accessToken) {
-            localStorage.setItem("accessToken", x.accessToken)
-            this.router.navigate(["/home"])
-          }
-        })
-    }
   }
 
 }
