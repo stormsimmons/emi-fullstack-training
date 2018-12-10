@@ -6,13 +6,14 @@
 
 <div class="container">
   <div class="tile" *ngFor="let todo of todos">
-    <p>{{todo.name}}</p>
-    <p>{{todo.userName}}</p>
+    <div class="delete fas fa-trash-alt" (click)="deleteTodo(todo)"></div>
     <select (change)="onChange(todo)" [(ngModel)]="todo.status">
       <option *ngFor="let status of getEnumName()" [selected]="todo.status == status" [value]="status">{{status}}</option>
     </select>
-    <br>
-    <div class="delete fas fa-trash-alt" (click)="deleteTodo(todo)">
+    <div class="info-container">
+      <p>{{todo.name}}</p>
+      <p>{{todo.userName}}</p>
     </div>
+
   </div>
 </div>

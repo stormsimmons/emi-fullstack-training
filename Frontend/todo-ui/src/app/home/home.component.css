@@ -6,7 +6,7 @@
 
 .app-title {
     text-align: center;
-    color: #777;
+    color: white;
 }
     
 .btn {
@@ -31,7 +31,7 @@
   }
 
   .logout{
-    left: 95%;
+    left: 85%;
     top: 10px;
     position: absolute;
   }
