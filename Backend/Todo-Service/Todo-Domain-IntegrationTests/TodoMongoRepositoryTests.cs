@@ -78,6 +78,16 @@ namespace Todo_Domain_IntegrationTests
 			Assert.True(deleted == null);
 		}
 
+		[Fact]
+		public void Update_ValidInput_ReturnsResult()
+		{
+			_testTodo.Status = "InProgress";
+
+			Todo updated = _todoRepository.Update(todo: _testTodo);
+			Assert.Equal("InProgress", updated.Status);
+
+		}
+
 		public void Dispose()
 		{
 			_todoRepository.Delete(id: (ObjectId)_testTodo.Id);

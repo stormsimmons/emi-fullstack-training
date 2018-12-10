@@ -1,0 +1,37 @@
+
+.container {
+    font-family: Arial;
+    margin: 20px auto;
+}
+
+.app-title {
+    text-align: center;
+    color: #777;
+}
+    
+.btn {
+    border: 2px solid transparent;
+    background: #3498DB;
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 25px;
+    padding: 5px 0;
+    text-decoration: none;
+    text-shadow: none;
+    border-radius: 3px;
+    box-shadow: none;
+    transition: 0.25s;
+    display: inline-block;
+    width: 80px;
+    margin: 0px;
+  }
+  
+  .btn:hover {
+    background-color: #2980B9;
+  }
+
+  .logout{
+    left: 95%;
+    top: 10px;
+    position: absolute;
+  }

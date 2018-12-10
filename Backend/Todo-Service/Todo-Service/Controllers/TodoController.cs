@@ -75,6 +75,12 @@ namespace Todo_Service.Controllers
 			return Ok();
 		}
 
+		[HttpPut]
+		public IActionResult Update([FromBody]TodoDto todo)
+		{
+			var updated = _todoRepository.Update(Mapper.Map<Todo>(todo));
 
+			return Json(updated);
+		}
 	}
 }

@@ -7,7 +7,7 @@
   }
 
   .tile{
-      background: red;
+      background: lightgray;
       width: 200px;
       height: 200px;
       padding: 20px;
@@ -34,3 +34,8 @@
     background-color: #2980B9;
   }
   
+  .delete{ 
+    cursor: pointer;
+    padding: 10px;
+  }
+ 

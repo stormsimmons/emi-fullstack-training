@@ -19,8 +19,13 @@ export class TodoService {
 
   constructor(private http: HttpClient, public appContext: AppContext) {}
 
-  public Add(todo:Todo): Observable<Todo>{
+  public add(todo:Todo): Observable<Todo>{
     return this.http.post(`${environment.apiUrl}/todo`,todo,this.httpOptions)
+      .pipe(map(this.mapTodo))
+  }
+
+  public update(todo:Todo): Observable<Todo>{
+    return this.http.put(`${environment.apiUrl}/todo`,todo,this.httpOptions)
       .pipe(map(this.mapTodo))
   }
 

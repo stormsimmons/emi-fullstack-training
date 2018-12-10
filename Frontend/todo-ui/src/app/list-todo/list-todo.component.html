@@ -1,5 +1,5 @@
 <button class="btn" *ngIf="showAll; else allUser" (click)="listByUser()">Show only my todos</button>
-<ng-template  #allUser>
+<ng-template #allUser>
   <button class="btn" (click)="listAll()">Show all todos</button>
 </ng-template>
 
@@ -12,6 +12,7 @@
       <option *ngFor="let status of getEnumName()" [selected]="todo.status == status" [value]="status">{{status}}</option>
     </select>
     <br>
-    <button (click)="deleteTodo(todo)">Delete</button>
+    <div class="delete fas fa-trash-alt" (click)="deleteTodo(todo)">
+    </div>
   </div>
 </div>

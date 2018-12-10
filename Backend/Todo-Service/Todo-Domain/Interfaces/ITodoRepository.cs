@@ -13,5 +13,6 @@ namespace Todo_Domain.Interfaces
 		void Delete(ObjectId id);
 		IList<Todo> List();
 		IList<Todo> ListByUser(string userName);
+		Todo Update(Todo todo);
 	}
 }

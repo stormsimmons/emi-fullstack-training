@@ -21,6 +21,7 @@ using Todo_Domain.Services;
 using Todo_Service.Dtos;
 using Swashbuckle.AspNetCore.SwaggerUI;
 using Swashbuckle.AspNetCore.Swagger;
+using MongoDB.Bson;
 
 namespace Todo_Service
 {
@@ -73,6 +74,7 @@ namespace Todo_Service
 
 			Mapper.Initialize(x =>
 			{
+				x.CreateMap<string, ObjectId>().ConvertUsing(src => new ObjectId(src));
 				x.CreateMap<User, UserDto>().ReverseMap();
 				x.CreateMap<Todo, TodoDto>().ReverseMap();
 			});

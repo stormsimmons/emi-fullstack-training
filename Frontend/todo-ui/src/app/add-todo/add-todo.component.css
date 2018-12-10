@@ -5,20 +5,11 @@
     *:focus {
         outline: none;
     }
-    .add-todo {
-    font-family: Arial;
 
-    margin: 20px auto;
-    }
     .add-todo-screen {
     background-color: #FFF;
     padding: 20px;
     border-radius: 5px
-    }
-    
-    .app-title {
-    text-align: center;
-    color: #777;
     }
     
     .add-todo-form {

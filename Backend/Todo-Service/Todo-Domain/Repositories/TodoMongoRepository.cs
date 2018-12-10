@@ -71,5 +71,17 @@ namespace Todo_Domain.Repositories
 			return collection.Find(new FilterDefinitionBuilder<Todo>()
 										   .Eq((x) => x.UserName, userName)).ToList();
 		}
+
+		public Todo Update(Todo todo)
+		{
+			var collection = _db.GetCollection<Todo>("Todo");
+
+			collection.UpdateOne(new FilterDefinitionBuilder<Todo>()
+										   .Eq((x) => x.Id, todo.Id),
+										   new UpdateDefinitionBuilder<Todo>()
+										   .Set(x => x.Status, todo.Status));
+			return GetOne((ObjectId)todo.Id);
+
+		}
 	}
 }
