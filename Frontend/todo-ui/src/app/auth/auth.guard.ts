@@ -28,7 +28,7 @@ export class AuthGuard implements CanActivate {
 
     var decoded: any = jwtDecode(token);
     this.appContext.accessToken = token;
-    this.appContext.username = decoded.user_name
+    this.appContext.userName = decoded.user_name
     
     if (decoded.exp > Math.round((new Date()).getTime() / 1000)) {
       return true;

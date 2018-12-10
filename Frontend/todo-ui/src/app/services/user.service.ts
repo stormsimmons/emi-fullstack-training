@@ -16,7 +16,7 @@ export class UserService {
     })
   };
 
-  constructor(private http: HttpClient, public appContext: AppContext) {}
+  constructor(private http: HttpClient, private appContext: AppContext) {}
 
   public insertUser(user:User){
     return this.http.post(`${environment.apiUrl}/user`, user, this.httpOptions)

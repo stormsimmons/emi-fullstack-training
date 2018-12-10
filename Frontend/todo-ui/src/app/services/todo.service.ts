@@ -36,7 +36,7 @@ export class TodoService {
 
   public getAllByUser(): Observable<Todo[]>{
     return this.http
-      .get(`${environment.apiUrl}/todo/user/${this.appContext.username}`, this.httpOptions)
+      .get(`${environment.apiUrl}/todo/user/${this.appContext.userName}`, this.httpOptions)
       .pipe(
         map((list: Todo[]) =>{
           if(!list) {

@@ -2,6 +2,7 @@
     <div class="app-title">
         <h1>Add Todo</h1>
         <button class="btn logout" (click)="logout()">Logout</button>
+        <p>{{appContext.userName}}</p>
     </div>
     <app-add-todo (addedEvent)="addedEvent($event)"></app-add-todo>
     <app-list-todo [addedItem]="addedItem"></app-list-todo>

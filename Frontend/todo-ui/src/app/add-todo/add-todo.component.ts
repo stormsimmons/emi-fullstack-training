@@ -21,7 +21,7 @@ export class AddTodoComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    let todo = new Todo(null, this.todoName, Status.Todo, null, this.appContext.username, null, null);
+    let todo = new Todo(null, this.todoName, Status.Todo, null, this.appContext.userName, null, null);
 
     this.todoService.add(todo)
       .subscribe(todo => {

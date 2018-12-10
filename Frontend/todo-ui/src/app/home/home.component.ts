@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from '../models/todo';
 import { Router } from '@angular/router';
+import { AppContext } from '../app.context';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,7 @@ export class HomeComponent implements OnInit {
 
   public addedItem:Todo
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private appContext: AppContext) { }
 
   ngOnInit() {
   }
