@@ -19,11 +19,13 @@
   background-color: #2980B9;
 }
 
-.login {
-  top: -34px;
-  position: relative;
+.register-btn {
+  position: absolute;
+  left: 835px;
+  top: 293px;
 }
-.registration{
-  top: -34px;
-  position: relative;
+.back-to-login{
+  position: absolute;
+  top: 395px;
+  left: 835px;
 }

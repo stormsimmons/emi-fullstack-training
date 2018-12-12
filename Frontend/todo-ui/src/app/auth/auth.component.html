@@ -1,11 +1,11 @@
 <div *ngIf="!isRegistration; else registerForm" class="login">
 	<app-login></app-login>
-	<button class="btn login" (click)="isRegistration = !isRegistration">Register</button>
+	<button class="btn register-btn" (click)="isRegistration = !isRegistration">Register</button>
 </div>
 
 <ng-template #registerForm>
 	<div class="registration">
 		<app-registration></app-registration>
-		<button class="btn registration" (click)="isRegistration = !isRegistration">Back to login</button>
+		<button class="btn back-to-login" (click)="isRegistration = !isRegistration">Back to login</button>
 	</div>
 </ng-template>
