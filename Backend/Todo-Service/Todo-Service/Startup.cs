@@ -22,6 +22,9 @@ using Todo_Service.Dtos;
 using Swashbuckle.AspNetCore.SwaggerUI;
 using Swashbuckle.AspNetCore.Swagger;
 using MongoDB.Bson;
+using FluentValidation.AspNetCore;
+using FluentValidation;
+using Todo_Service.Validation;
 
 namespace Todo_Service
 {
@@ -39,10 +42,16 @@ namespace Todo_Service
 		{
 			string _connectionString = Configuration.GetConnectionString("MongoConnection");
 
-			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
+				.AddFluentValidation();
+
 			services.AddTransient<IUserService, UserService>();
 			services.AddTransient<IUserRepository>(x => new UserMongoRepository(_connectionString));
 			services.AddTransient<ITodoRepository>(x => new TodoMongoRepository(_connectionString));
+
+			services.AddTransient<IValidator<UserDto>, UserValidator>();
+			services.AddTransient<IValidator<TodoDto>, TodoValidator>();
+
 
 			services.AddCors();
 

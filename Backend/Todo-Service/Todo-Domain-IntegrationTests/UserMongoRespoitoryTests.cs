@@ -46,7 +46,7 @@ namespace Todo_Domain_IntegrationTests
 
 		public void Dispose()
 		{
-			_userRepository.Delete(_user.Id);
+			_userRepository.Delete((ObjectId)_user.Id);
 		}
 	}
 }
