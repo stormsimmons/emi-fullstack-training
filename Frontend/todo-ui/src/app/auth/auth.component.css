@@ -20,12 +20,12 @@
 }
 
 .register-btn {
-  position: absolute;
-  left: 835px;
-  top: 293px;
+  position: relative;
+  left: 0px;
+  top: -95px;
 }
 .back-to-login{
-  position: absolute;
-  top: 395px;
-  left: 835px;
+  position: relative;
+  top: -95px;
+  left: 0px;
 }

@@ -45,7 +45,7 @@ export class ListTodoComponent implements OnChanges {
 
   public deleteTodo(todo:Todo):void{
     this.todoService.delete(todo.id).subscribe(x => {
-      this.todos.splice(this.todos.indexOf(todo,1))
+      this.todos.splice(this.todos.indexOf(todo),1)
     })
   }
 
