@@ -2,12 +2,15 @@ import * as express from 'express';
 import { TodoRepository } from '../repositories/todo-respository';
 import { TodoDto } from './dtos/todo-dto';
 import { Todo } from '../models/todo';
+import { TokenValidation } from '../middleware/token-validation';
 export class TodoController{
 
     constructor(private todoRepository:TodoRepository) { }
 
     public buildRoutes(): express.Router {
         const router = express.Router();
+
+        router.use(TokenValidation.authenticate)
 
         router.get('/todo', async (req,res,next)=> {
             let todos = await this.todoRepository.list()

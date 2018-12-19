@@ -25,15 +25,17 @@ export class TodoRepository {
         await collection.deleteOne({ _id: new ObjectID(id) });
     }
 
-    public async update(todo: Todo): Promise<any> {
+    public async update(todo: Todo): Promise<Todo> {
         if(!todo._id){
             return null;
         }
         const collection = await this.getCollection();
-        await collection.findOneAndUpdate({ _id: new ObjectID(todo._id) }, {$set : { 
+        let result = await collection.findOneAndUpdate({ _id: new ObjectID(todo._id) }, {$set : { 
             lastUpdatedAt: new Date(Date.now()),
             status : todo.status
         }});
+
+        return await this.getOne(todo._id.toString());
     }
     public async insert(todo: Todo): Promise<Todo> {
         const collection = await this.getCollection();

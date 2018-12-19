@@ -22,7 +22,6 @@ export class AccountController {
             res.status(200).send({accessToken: token})
         })
 
-        
         return router;
     }
 

@@ -3,6 +3,7 @@ import { UserRepository } from '../repositories/user-repository';
 import { AuthService } from '../services/auth-service';
 import { UserDto } from './dtos/user-dto';
 import { User } from '../models/user';
+import { TokenValidation } from '../middleware/token-validation';
 
 export class UserController {
 
@@ -11,12 +12,12 @@ export class UserController {
     public buildRoutes(): express.Router {
         const router = express.Router();
 
-        router.get('/user', async (req, res, next) => {
+        router.get('/user',TokenValidation.authenticate, async (req, res, next) => {
             let users = await this.userRepository.list()
             res.send(users.map(x => UserDto.fromUser(x)))
         })
 
-        router.get('/user/:userName', async (req, res, next) => {
+        router.get('/user/:userName', TokenValidation.authenticate, async (req, res, next) => {
             res.send(UserDto.fromUser(await this.userRepository.getOne(req.params.userName)))
         })
 
