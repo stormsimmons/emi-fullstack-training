@@ -1,4 +1,5 @@
 ﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,10 +15,16 @@ namespace Todo_Domain.Models
 			UserName = userName;
 			Password = password;
 		}
+
+		[BsonElement("_id")]
 		public ObjectId? Id { get; set; }
+		[BsonElement("firstName")]
 		public string FirstName { get; set; }
+		[BsonElement("lastName")]
 		public string LastName { get; set; }
+		[BsonElement("userName")]
 		public string UserName { get; set; }
+		[BsonElement("password")]
 		public string Password { get; set; }
 	}
 }

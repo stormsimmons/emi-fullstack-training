@@ -57,7 +57,7 @@ export class TodoService {
       );
   }
 
-  private mapTodo(todo:Todo){
+  private mapTodo(todo:any){
     return  new Todo(
       todo.id,
       todo.name,

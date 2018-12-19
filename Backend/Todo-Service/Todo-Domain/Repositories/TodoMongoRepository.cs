@@ -79,7 +79,8 @@ namespace Todo_Domain.Repositories
 			collection.UpdateOne(new FilterDefinitionBuilder<Todo>()
 										   .Eq((x) => x.Id, todo.Id),
 										   new UpdateDefinitionBuilder<Todo>()
-										   .Set(x => x.Status, todo.Status));
+										   .Set(x => x.Status, todo.Status)
+										   .Set(x => x.LastUpdatedAt, DateTime.Now));
 			return GetOne((ObjectId)todo.Id);
 
 		}
