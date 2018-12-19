@@ -27,14 +27,4 @@ app.use('/api',accountControler.buildRoutes())
 app.use('/api',userControler.buildRoutes())
 app.use('/api',todoControler.buildRoutes())
 
-
-
-// app.get('/todo', async (req,res,next)=> {
-//     res.send(await todoRepo.list())
-// })
-
-// app.get('/user', async (req,res,next)=> {
-//     res.send(await userRepository.list())
-// })
-
 app.listen(4000, () => console.log("Server is running on port 4000.."));
