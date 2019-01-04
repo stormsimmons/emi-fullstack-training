@@ -2,7 +2,6 @@ import * as http from 'axios';
 import { ApiUrl } from '../constants'
 export class TodoService {
 
-
     getAll = async () => {
         return await http.default.get(`${ApiUrl}/todo`, this.getOptions())
     }
